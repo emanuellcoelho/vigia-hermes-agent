@@ -17,8 +17,7 @@ one owner, one place.
 | `skills/vigia-digest/` | the morning digest conversation and "compro ou espero?" | alert decisions (engine owns those) |
 | `skills/vigia-onboarding/` | first contact, config questions, cron registration | the engine's defaults (config.py owns those) |
 | `skills/vigia-watch/scripts/kit/` | generic infrastructure: clock, http, jsonio — domain-free | anything that knows what a price is |
-| `image/` | s6 services (agent-index reporter), TZ cont-init | gateway config, plow-init — the base's |
-| `vendor/client.pin` | which agent-index-client commit runs inside the agent | a vendored copy that drifts |
+| `image/` | TZ cont-init | gateway config, plow-init, agent-index reporter — the base's |
 | `Dockerfile` / `compose.yml` | how this content ships | base-image behavior |
 
 A Hermes bug goes upstream (`srosro/hermes-agent`), never patched here. A
@@ -50,7 +49,7 @@ Conventional, scoped by the table above, imperative, one concern per commit:
 `feat(engine):`, `feat(sources):`, `feat(skills):`, `feat(report):`,
 `fix(...)`, `docs:`, `chore:`. The body says **why**; the diff says what.
 Never in a commit: `plow-credentials`, state files, anything under a
-`VIGIA_HOME`. A pin bump (`vendor/client.pin`, the base digest) is its own
+`VIGIA_HOME`. A pin bump (the base digest) is its own
 commit naming what moved and why.
 
 ## Tests
